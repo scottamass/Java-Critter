@@ -20,7 +20,7 @@ public class App {
             bob.train();
             }
         }
-        System.out.println("Critter has died.");
+        System.out.println( bob.name + "has died.");
         System.out.println("you lost the game.");
         scanner.close();
     }
