@@ -1,11 +1,10 @@
-import javax.xml.namespace.QName;
-
 public class Critter {
     private boolean isAlive;
     private int foodLevel;
     private int tiredness;
     private int fitness;
     public String name;
+    public boolean iswin;
 
 
     public Critter() {
@@ -13,8 +12,10 @@ public class Critter {
         foodLevel = 5;
         tiredness = 0;
         fitness = 0;
+        iswin=true;
 
     }
+
 
     public boolean isAlive() {
         return isAlive;
@@ -22,6 +23,11 @@ public class Critter {
 
     private void die() {
         isAlive = false;
+    }
+
+
+    private void win() {
+        iswin = false;
     }
 /// sleep system held together by duct tape
     static void ZZZ() {
@@ -36,7 +42,7 @@ public class Critter {
     public void sleep() {
         System.out.println(name +" sleeps.");
         tiredness = 0;
-        foodLevel -= 3;
+        foodLevel -= 2;
         ZZZ();
         ZZZ();
         ZZZ();
@@ -72,10 +78,16 @@ public class Critter {
             System.out.println("Critter trained.");
             foodLevel--;
             tiredness++;
-            fitness ++;
+            fitness+=2;
             System.out.println(foodLevel);
             System.out.println(tiredness);
-            if (foodLevel < 0) {
+            System.out.println(fitness);
+            if (fitness > 5) {
+                win();
+
+
+            }
+            else if (foodLevel < 0) {
                 System.out.println( name + " got hungry.");
                 die();
             }
@@ -85,5 +97,9 @@ public class Critter {
             }
         }
 
+    }
+
+    public boolean iswin() {
+        return iswin;
     }
 }
