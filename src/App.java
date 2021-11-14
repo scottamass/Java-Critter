@@ -6,8 +6,8 @@ public class App {
         Scanner scanner = new Scanner(System.in);
         System.out.println("enter name");
         bob.name = scanner.nextLine();
-        while (bob.iswin()) {
-            while (bob.isAlive()) {
+        //while (bob.iswin()) {
+            while (bob.isAlive() && !bob.win()) {
 
                 System.out.println("What would you like Critter to do?");
                 String lineRead = scanner.nextLine();
@@ -19,12 +19,16 @@ public class App {
                     bob.train();
                 }
             }
-            System.out.println(bob.name + "has died.");
+           if(!bob.isAlive()){ System.out.println(bob.name + "has died.");
             System.out.println("you lost the game.");
+           }
+
+           if(bob.win()) System.out.println("you win");
             scanner.close();
         }
-        System.out.println("you win");
-        scanner.close();
-    }
+    //    System.out.println("you win");
+
+     //   scanner.close();
+  //  }
     }
 

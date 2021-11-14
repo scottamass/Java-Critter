@@ -1,10 +1,10 @@
 public class Critter {
-    private boolean isAlive;
+    private boolean isAlive ,Win;
     private int foodLevel;
     private int tiredness;
     private int fitness;
     public String name;
-    public boolean iswin;
+
 
 
     public Critter() {
@@ -12,22 +12,27 @@ public class Critter {
         foodLevel = 5;
         tiredness = 0;
         fitness = 0;
-        iswin=true;
+        Win=false;
+       // this.name =name;
 
     }
-
 
     public boolean isAlive() {
         return isAlive;
     }
+    public boolean win() {
+        return Win;
+    }
+
+
 
     private void die() {
         isAlive = false;
     }
 
 
-    private void win() {
-        iswin = false;
+    private void Win() {
+        Win = true;
     }
 /// sleep system held together by duct tape
     static void ZZZ() {
@@ -57,7 +62,7 @@ public class Critter {
     }
 
     public void feed() {
-        if (isAlive) {
+        if (isAlive && !Win) {
             System.out.println( name +" eats.");
             foodLevel++;
             tiredness++;
@@ -74,18 +79,16 @@ public class Critter {
         }
     }
     public void train(){
-        if (isAlive) {
+        if (isAlive && !Win) {
             System.out.println("Critter trained.");
             foodLevel--;
             tiredness++;
-            fitness+=2;
+            fitness+=6;
             System.out.println(foodLevel);
             System.out.println(tiredness);
             System.out.println(fitness);
-            if (fitness > 5) {
-                win();
-
-
+            if (fitness >= 5) {
+                Win();
             }
             else if (foodLevel < 0) {
                 System.out.println( name + " got hungry.");
@@ -99,7 +102,5 @@ public class Critter {
 
     }
 
-    public boolean iswin() {
-        return iswin;
-    }
+
 }
