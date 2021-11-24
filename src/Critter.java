@@ -7,6 +7,8 @@ public class Critter {
 
 
 
+
+
     public Critter() {
         isAlive = true;
         foodLevel = 5;
@@ -15,7 +17,10 @@ public class Critter {
         Win=false;
        // this.name =name;
 
+
     }
+
+
 
     public boolean isAlive() {
         return isAlive;
@@ -53,8 +58,8 @@ public class Critter {
         ZZZ();
         ZZZ();
         ZZZ();
-        System.out.println(foodLevel);
-        System.out.println(tiredness);
+      //  System.out.println(foodLevel);
+      //  System.out.println(tiredness);
         if (foodLevel <= 0) {
             System.out.println( name + " starves to death.");
             die();
@@ -64,12 +69,13 @@ public class Critter {
     public void feed() {
         if (isAlive && !Win) {
             System.out.println( name +" eats.");
+
             foodLevel++;
             tiredness++;
-            System.out.println(foodLevel);
-            System.out.println(tiredness);
+           // System.out.println(foodLevel);
+           // System.out.println(tiredness);
             if (foodLevel > 10) {
-                System.out.println("Critter over ate.");
+                System.out.println(name +" over ate.");
                 die();
             }
             else if (tiredness > 5) {
@@ -78,15 +84,21 @@ public class Critter {
             }
         }
     }
+
+    public void animal_Sound() {
+        System.out.println("ok lets do this ....LEEEEROOOOYYYY JENNNNKKINS");
+    }
+
+
     public void train(){
         if (isAlive && !Win) {
             System.out.println("Critter trained.");
             foodLevel--;
             tiredness++;
             fitness+=6;
-            System.out.println(foodLevel);
-            System.out.println(tiredness);
-            System.out.println(fitness);
+            //System.out.println(foodLevel);
+            //System.out.println(tiredness);
+            //System.out.println(fitness);
             if (fitness >= 5) {
                 Win();
             }
